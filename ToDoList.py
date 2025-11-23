@@ -1,5 +1,4 @@
 import os
-import sys
 TODO_FILE = "todo_list.txt"
 def load_tasks():
     if not os.path.exists(TODO_FILE):
