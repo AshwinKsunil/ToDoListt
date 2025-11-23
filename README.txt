@@ -5,7 +5,30 @@
 B. Problem Statement
 	Design and implement a simple, persistent, and accessible command-line utility that allows users to quickly manage a list of tasks, including the ability to add new items, track completion status, and remove finished or unnecessary entries, thereby improving personal productivity and organization.
 
-2. Clear Objectives and Expected Outcomes
+2. Installation and Requirements
+The program relies on the following standard components:
+
+	Python Interpreter: You only need to have a working version of Python (any recent version, 3.x is standard) installed on your system.
+
+	Built-in Modules:
+
+	os: Used for checking if the data file exists (os.path.exists).
+
+	Local File Access: The script creates and manages the todo_list.txt file in the same directory where you run the script.
+
+A. How to Run :
+	
+	Save the code as todo_manager.py.
+
+	Open your terminal or command prompt.
+
+	Navigate to the directory where you saved the file.
+
+	Execute the script using the Python interpreter:
+
+	python todo_manager.py
+
+3. Clear Objectives and Expected Outcomes
 	A. Objectives (What the system must do)
 	Persistence: Tasks must be saved to a file (todo_list.txt) and automatically loaded upon startup.
 
@@ -25,7 +48,7 @@ B. Problem Statement
 
 	All program functions (add_task, complete_task, etc.) handle invalid user input (e.g., non-numeric input for indexing) gracefully without crashing.
 
-3. Application of Concepts and Design
+4. Application of Concepts and Design
 
 A. Concepts Learned in Course
 
@@ -49,7 +72,7 @@ Techniques:
 
 	List Indexing :- Using enumerate(tasks, 1) for displaying tasks and tasks.pop(task_index) for deletion relies on fundamental list indexing.
 
-4. Top Down Approach
+5. Top Down Approach
 
 The project's structure adheres to the principle of Top-Down Design
 
@@ -59,7 +82,7 @@ Level 2: The Core Logic (CRUD Operations)Modules: add_task(), complete_task(), d
 
 Level 3: The Utility Layer (Persistence)Modules: load_tasks() and save_tasks().Principle: Separation of Concerns. This layer isolates the messy details of file handling from the core logic. The core functions simply call save_tasks(), making the system flexible—if the file format were to change, only these two functions would require modification.
 
-5. Algorithm Development
+6. Algorithm Development
 
 	load_tasks() :- 1. Check if file exists. 2. If yes, open, read lines, strip whitespace, and return list. 3. If error, print message and return empty list.
 	
@@ -69,11 +92,11 @@ Level 3: The Utility Layer (Persistence)Modules: load_tasks() and save_tasks().P
 	
 	incomplete marker :- [ ] with the complete marker [x]. 5. Save and confirm.
 
-6. Implementation
+7. Implementation
 
 	The provided Python code implements the design, using the list data structure as the central point of state management and file I/O for persistence.
 
-7. Testing Results
+8. Testing Results
 
 	1)Add Task => Input: Take out trash
 	Task added: 'Take out trash'
