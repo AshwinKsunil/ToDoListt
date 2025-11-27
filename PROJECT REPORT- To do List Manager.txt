@@ -1,0 +1,114 @@
+PROJECT REPORT:- To do List Manager
+
+STUDENT NAME:- Ashwin K Sunil
+REGISTRATION NUMBER:- 25BAI11036
+COURSE:- B.TECH CSE (AIML)
+SUBJECT:- Introduction To Problem Solving And Programming
+DATE:- 23-11-2025
+
+
+
+
+1. Project Overview and Problem Definition:-
+
+	A. Real-World Problem Addressed:-
+
+	The project tackles the common real-world problem of cognitive overload and inefficiency in personal and professional life. Individuals frequently struggle to maintain a centralized and accessible list of commitments, leading to missed deadlines and increased stress.
+
+	B. Problem Statement:-
+
+	The goal was to design and implement a simple, persistent, and accessible command-line utility that allows users to quickly perform CRUD (Create, Read, Update, Delete) operations on a list of tasks, thus improving personal productivity through better organization.
+
+	C. Solution Description:-
+
+	The solution is a minimal Python script that uses basic file input/output (I/O) to store task data in a local file (todo_list.txt). This ensures persistence without relying on complex databases or external libraries.
+
+2. Approach and Design Methodology:-
+
+	A. Design Approach: Top-Down Design (Modularization):-
+
+	The project utilized the Top-Down Design methodology to ensure code clarity, modularity, and maintainability.
+
+	The system was logically divided into three distinct functional layers:
+
+	Level 1: The Controller (main()): Manages the application flow, presenting the menu and interpreting user input.
+
+	Level 2: Core Logic (CRUD Functions): Implements the primary user actions (add_task, complete_task, etc.). These functions operate 		only on the in-memory list state.
+
+	Level 3: Utility/Persistence Layer (load_tasks, save_tasks): Handles the low-level mechanics of reading from and writing to the 		todo_list.txt file, isolating file I/O errors from the main application logic (Separation of Concerns).
+
+	B. Tooling and Requirements
+
+	Language	Python (3.x)	Simplicity, readability, and speed of development for a utility task.
+
+	Modules	os,  (Built-in only)	Ensures zero external dependency, making the program instantly runnable on any system with Python 					installed.
+
+	Data Storage	Local Text File (todo_list.txt)	Provides simple persistence without needing a database server or complex data 				structures.
+
+3. Implementation Details:-
+
+	A. Data Structure and State Management:-
+
+	The core state of the application is managed by a simple Python list (tasks). Each task is stored as a string containing the 	status marker ([ ] or [x]) and the description (e.g., "[ ] Buy milk"). This approach allows for easy manipulation using standard 	list methods (append, pop) and string manipulation (replace).
+
+	B. Key Implementation Techniques:-
+
+	Persistence Functions (load_tasks, save_tasks):-
+
+	load_tasks() uses os.path.exists() and a try...except block for fault tolerance, preventing crashes if the data file is missing or 	corrupted.
+
+	save_tasks() uses write mode ('w') and ensures a newline character (\n) is appended to each saved task to maintain correct file 	formatting.
+
+	Update Logic (complete_task):-
+
+	The function uses list indexing (index - 1) to target the specific task.
+
+	It implements the critical update using old_task.replace("[ ]", "[x]", 1), ensuring only the task's initial status marker is 	changed.
+	
+	Input Validation:-
+
+	Type Validation: try...except ValueError blocks are used in complete_task and delete_task to handle non-numeric input, upholding 	robustness.
+
+	Range Validation: A check (0 <= task_index < len(tasks)) is performed to ensure the user-supplied index is a valid task number, 	preventing an IndexError.
+
+4. Results and Analysis:-
+
+	A. Functional Results (Meeting Objectives):-
+
+	All core objectives were met:
+
+	Persistence: Successfully verified via testing (Test Case 9) that data loads and saves across sessions.
+
+	CRUD Operations: All four operations (Add, View, Complete, Delete) are functional and reliable.
+
+	Status Tracking: The [ ] and [x] markers are correctly maintained and updated.
+
+	UI: The numbered menu is clear and easy to navigate.
+
+	B. Testing Summary:-
+
+	The system proved robust across critical edge cases:-
+
+	Persistence Check	PASS	Validated the fundamental requirement that the data layer (load_tasks/save_tasks) correctly 						handles file I/O.
+
+	Persistence Check	PASS	Validated the fundamental requirement that the data layer (load_tasks/save_tasks) correctly 						handles file I/O.
+
+	invalid Index/Input	PASS	Confirmed that try...except blocks and range checks prevent crashes, directing the user to input 					valid data.
+
+	Already Complete	PASS	The dedicated check (if old_task.startswith("[x]")) provided specific feedback to the user, 						enhancing the application's usability.
+
+	C. Conclusion and Future Refinement:-
+
+	The Command-Line To-Do List Manager successfully solves the stated problem with a minimal, elegant implementation. The reliance on 	built-in modules achieves the project goals for simplicity and accessibility.
+
+	Potential Future Refinements:
+
+	Priority Flagging: Add the ability to label tasks with high/medium/low priority using a separate status marker.
+
+	Date Tracking: Incorporate the datetime module to allow users to add due dates and sort the list by urgency.
+
+	Search/Filter: Implement a simple search function to filter tasks by keywords or status ([ ] or [x]).
+
+
+
+
